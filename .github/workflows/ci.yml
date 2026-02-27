@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [main]
 
-permissions:
-  contents: read
-
 jobs:
   lint-and-typecheck:
     runs-on: ubuntu-latest
@@ -18,7 +15,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-      - run: npm ci
+      - run: npm install --legacy-peer-deps
       - run: npx tsc --noEmit
       - run: npx eslint . --ext .ts,.tsx
 
@@ -31,7 +28,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-      - run: npm ci
+      - run: npm install --legacy-peer-deps
       - run: npm test
 
   build:
@@ -43,5 +40,5 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-      - run: npm ci
+      - run: npm install --legacy-peer-deps
       - run: npx expo export --platform web
