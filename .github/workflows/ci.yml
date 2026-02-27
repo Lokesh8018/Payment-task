@@ -41,4 +41,9 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm install --legacy-peer-deps
-      - run: npx expo export --platform web
+      - name: Verify Expo project
+        run: npx expo config --type public
+      - name: Build web
+        run: npx expo export --platform web
+        env:
+          CI: true
