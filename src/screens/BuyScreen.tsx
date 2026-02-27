@@ -18,7 +18,7 @@ import { useOrders } from '../context/OrderContext';
 import { useUser } from '../context/UserContext';
 import { useNewbieReward } from '../hooks/useNewbieReward';
 import { BuyOrder, Transaction } from '../types';
-import { COLORS, SPACING, BORDER_RADIUS } from '../config/theme';
+import { COLORS, SPACING } from '../config/theme';
 
 export default function BuyScreen() {
   const { buyOrders, addBuyHistory, markOrderUnavailable, refreshOrders } = useOrders();

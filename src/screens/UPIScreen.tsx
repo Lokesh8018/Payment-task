@@ -18,7 +18,7 @@ import { UPI_APPS } from '../config/constants';
 import { COLORS, SPACING, BORDER_RADIUS, SHADOW } from '../config/theme';
 
 export default function UPIScreen() {
-  const { upiConfig, selectedApp, saveUPIConfig, disableSell } = useUPIApps();
+  const { upiConfig, saveUPIConfig, disableSell } = useUPIApps();
   const [showPicker, setShowPicker] = useState(false);
 
   const handleSelect = (upiId: string, app: UPIApp) => {
