@@ -16,8 +16,10 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm install --legacy-peer-deps
-      - run: npx tsc --noEmit
-      - run: npx eslint . --ext .ts,.tsx
+      - name: TypeScript Check
+        run: npx tsc --noEmit
+      - name: ESLint
+        run: npx eslint . --ext .ts,.tsx
 
   test:
     runs-on: ubuntu-latest
@@ -29,7 +31,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm install --legacy-peer-deps
-      - run: npm test
+      - name: Run Tests
+        run: npm test
 
   build:
     runs-on: ubuntu-latest
@@ -41,9 +44,10 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm install --legacy-peer-deps
-      - name: Verify Expo project
+      - name: Verify Expo Config
         run: npx expo config --type public
-      - name: Build web
+      - name: Build Web
         run: npx expo export --platform web
         env:
           CI: true
+          NODE_ENV: production
