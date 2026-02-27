@@ -25,10 +25,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png",
-      "bundler": "metro"
-    },
-    "plugins": [
-      "react-native-reanimated"
-    ]
+      "bundler": "metro",
+      "output": "static"
+    }
   }
 }
